@@ -1,0 +1,165 @@
+<nav class="navbar navbar-light bg-primary">
+  <a class="navbar-brand" href="#" style="color:white;">
+    <img class=" avatar d-inline-block align-top" src="./../../../assets/eu.png" width="30" height="30" alt="">
+    Aida Plataforma
+  </a>
+  <span class="navbar-brand" style="color:white;">
+    Olá, Hitallo
+    <img class=" avatar d-inline-block align-top" src="./../../../assets/eu.jpg" width="30" height="30" alt="">
+  </span>
+</nav>
+<nav class="notificabar navbar bg-light">
+
+    <!-- Links -->
+    <ul class="navbar-nav" style="height:105vh;">
+      <div class="notificacoes">Notificações</div>
+      <li class="nav-item">
+          <div class="cartao card" style="width: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">05/02/2019</h5>
+                <p class="card-text">
+                  João Carlos começou a executar a obra
+                </p>
+              </div>
+          </div>
+          <div class="cartao card" style="width: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">05/02/2019</h5>
+                <p class="card-text">
+                  Você adicionou prestador Marcos Calares
+                </p>
+              </div>
+          </div>
+          <div class="cartao card" style="width: 15rem;">
+              <div class="card-body">
+                <h5 class="card-title">05/02/2019</h5>
+                <p class="card-text">
+                  Você retirou o Sandro Silva da sua lista de Clientes
+                </p>
+              </div>
+          </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row" style="margin-top:10px;">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <nav class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="tabChoosed == ''" href="#" (click)="tabChoose('')">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="tabChoose('clientes')" href="#">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="tabChoose('prestadores')">Prestadores</a>
+          </li>
+        </nav>
+    </div>
+  </div>
+
+
+  <!-- Controle da Página inicial -->
+  <div *ngIf="tabChoosed == ''" id="inicio" style="margin-top:20px;">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+              <div class="card-body">
+                <div class="row">  
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <br>
+                    <img src="./../../../assets/eu.png" alt="" class="cardImage"> 
+                  </div>
+
+                  <div class="col-lg-9 col-md-9 col-sm-9">
+                    <br>
+                    <h4 class="card-title">Bem vindo! Como posso ajudá-lo? <hr></h4>
+                      <div style="margin-left:20px;">
+                        <p class="card-text">Dúvidas sobre pagamentos</p>
+                        <p class="card-text">Dúvidas sobre adicionar clientes</p>
+                        <p class="card-text">Dúvidas sobre adicionar prestadores</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6" style="height: 345px;">
+        <span class="badge badge-pill badge-info">Clientes</span>
+          <ul class="list-group">
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">Matheus Lima</h6>
+                      <p class="card-text">Status da Obra: Pintura</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">João Melo</h6>
+                      <p class="card-text">Status da Obra: Carpinteiro</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">Hitallo Silva</h6>
+                      <p class="card-text">Status da Obra: Gesseiro</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+        
+          </ul>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+          <span class="badge badge-pill badge-info">Prestadores</span>
+          <ul class="list-group">
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">Matheus Lima</h6>
+                      <p class="card-text">Status da Obra: Pintura</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">João Melo</h6>
+                      <p class="card-text">Status da Obra: Carpinteiro</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="clienteCard card">
+                    <div class="card-body">
+                      <h6 class="card-title">Hitallo Silva</h6>
+                      <p class="card-text">Status da Obra: Gesseiro</p>
+                      <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
+                    </div>
+                </div>
+            </li>
+        
+          </ul>
+      </div>
+
+    </div>
+    <br>
+  </div>
+<!-- FIM Controle da Página inicial -->
+  <div *ngIf="tabChoosed == 'clientes'" id="clientes">Clientes</div>
+  <div *ngIf="tabChoosed == 'prestadores'" id="prestadores">Prestadores</div>
+
+  
+
