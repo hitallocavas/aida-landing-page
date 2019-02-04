@@ -2,10 +2,11 @@ const express = require('express');
 
 const User = require('./../models/user');
 const Cliente = require('./../models/cliente');
+const Prestador = require('./../models/prestador');
 
 const router = express.Router();
 
-    // USUARIO DEMONSTRAÇÃO
+    // SERVIÇOS DE USUÁRIO
 
     router.post("/register", async (req,res) => {
         try {
@@ -41,7 +42,9 @@ const router = express.Router();
             res.send('Deletado com sucesso');
         })
     });
-    //FIM DEMONSTRAÇÃO USUARIO
+    //FIM SERVIÇOS DE USUARIO
+
+
 
     // SERVIÇOS RELATIVOS AO CLIENTE
     
@@ -60,5 +63,67 @@ const router = express.Router();
             return res.status(400).send({err:'Registration Error'});   
         }
     });
+
+    //Get clientes
+    router.get('/clientes', function(req, res) {
+        var clientes = {};
+        clientes = Cliente.find().then(clientes => {
+            res.send(clientes);
+        })
+     });
+ 
+     //Delete cliente
+     router.delete("/cliente", function(req,res){
+         console.log(req);
+         var cliente;
+         cliente = Cliente.findOneAndDelete(req.params.email, function(err){
+             if(err) return next(err);
+             res.send('Deletado com sucesso');
+         })
+     });
+
+
+    //FIM SERVIÇOS DO CLIENTE
+
+
+
+    // SERVIÇOS RELATIVOS AO PRESTADOR
+    
+    router.post("/cadastroPrestador", async (req,res) => {
+        try {
+            const {email} = req.body;
+                if(await Prestador.findOne({email})){
+                    res.status(400).send({error:'E-mail Já cadastrado'});
+                }
+
+            const prestador = await Prestador.create(req.body);
+            return res.send(prestador);
+            
+        } 
+        catch (err) {
+            return res.status(400).send({err});   
+        }
+    });
+
+    //Get prestadores
+    router.get('/Prestadores', function(req, res) {
+        var prestadores = {};
+        prestadores = Prestador.find().then(prestadores => {
+            res.send(prestadores);
+        })
+     });
+ 
+     //Delete prestadores
+     router.delete("/Prestadores", function(req,res){
+         console.log(req);
+         var prestador;
+         prestador = Prestador.findOneAndDelete(req.params.email, function(err){
+             if(err) return next(err);
+             res.send('Deletado com sucesso');
+         })
+     });
+
+     //FIM DEMONSTRAÇÃO USUARIO
+
 
 module.exports = app => app.use('/auth', router);

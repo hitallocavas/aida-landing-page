@@ -1,8 +1,12 @@
 const mongoose = require('../database/index');
 const bcrypt = require('bcryptjs');
 
-const ClienteSchema = new mongoose.Schema({
+const PrestadorSchema = new mongoose.Schema({
     name: {
+        type: String,
+        require: true,
+    },
+    idade: {
         type: String,
         require: true,
     },
@@ -16,37 +20,41 @@ const ClienteSchema = new mongoose.Schema({
         type: String,
         require: false,
     },
-    fotoPerfil:{
+    profissional: {
         type: String,
-        required: false,
+        require: true,
     },
     telefone: {
         type: String,
         required: true,
     },
-    descProjeto: {
-        type: String,
-        require: true,
-    },
+    
     createAt:{
         type: Date,
         default: Date.now,
     },
-    obras:{
-        type: String,
-        required: true,
-    },
-    orcamento:{
-        type: Number,
-        required:true,
-    },
-    prazo: {
-        type: String,
-        required: true,
-    },
-    visitasAgendadas: {
+    portfolio:{
         type: String,
         required: false,
+    },
+    av_prazo: {
+        type: Number,
+        require: false,
+    },
+    av_atendimento: {
+        type: Number,
+        require: false,
+    },av_orcamento: {
+        type: Number,
+        require: false,
+    },
+    avaliacao_geral: {
+        type: Number,
+        require: false,
+    },
+    comentarios_clientes: {
+        type: Number,
+        require: false,
     }
 });
 
@@ -59,6 +67,6 @@ const ClienteSchema = new mongoose.Schema({
 // next();
 // })
 
-const Cliente = mongoose.model('Cliente', ClienteSchema);
+const Prestador = mongoose.model('Prestador', PrestadorSchema);
 
-module.exports = Cliente;
+module.exports = Prestador;
