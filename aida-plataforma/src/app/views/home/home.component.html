@@ -11,7 +11,7 @@
 <nav class="notificabar navbar bg-light">
 
     <!-- Links -->
-    <ul class="navbar-nav" style="height:105vh;">
+    <ul class="navbar-nav" style="height:125vh;">
       <div class="notificacoes">Notificações</div>
       <li class="nav-item">
           <div class="cartao card" style="width: 15rem;">
@@ -88,11 +88,12 @@
     <br>
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6" style="height: 345px;">
-        <span class="badge badge-pill badge-info">Clientes</span>
+        <span class="badge badge-pill badge-info">Clientes  <span class="badge badge-danger">3</span></span>
           <ul class="list-group">
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">Matheus Lima</h6>
                       <p class="card-text">Status da Obra: Pintura</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -102,6 +103,7 @@
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">João Melo</h6>
                       <p class="card-text">Status da Obra: Carpinteiro</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -111,6 +113,7 @@
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">Hitallo Silva</h6>
                       <p class="card-text">Status da Obra: Gesseiro</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -121,11 +124,12 @@
           </ul>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6">
-          <span class="badge badge-pill badge-info">Prestadores</span>
+          <span class="badge badge-pill badge-info">Prestadores  <span class="badge badge-danger">3</span></span>
           <ul class="list-group">
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">Matheus Lima</h6>
                       <p class="card-text">Status da Obra: Pintura</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -135,6 +139,7 @@
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">João Melo</h6>
                       <p class="card-text">Status da Obra: Carpinteiro</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -144,6 +149,7 @@
             <li class="list-group-item">
                 <div class="clienteCard card">
                     <div class="card-body">
+                      <i style="float: right;" class="fas fa-eye"></i>
                       <h6 class="card-title">Hitallo Silva</h6>
                       <p class="card-text">Status da Obra: Gesseiro</p>
                       <p class="card-text">Status do Bot: <span style="color: green;">Ativo</span></p>
@@ -153,7 +159,16 @@
         
           </ul>
       </div>
+    </div>
+    <br>
 
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+          <button type="button" class="btn btn-primary btn-lg" (click) = "adicionarCliente()">Adicionar Cliente <span><i class="fas fa-user-plus"></i></span></button>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+          <button type="button" class="btn btn-primary btn-lg">Adicionar Prestador <span><i class="fas fa-user-plus"></i></span></button>
+      </div>
     </div>
     <br>
   </div>

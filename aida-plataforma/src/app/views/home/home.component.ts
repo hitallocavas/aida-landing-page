@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   tabChoosed:String = '';
+  showAlert:boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +16,10 @@ export class HomeComponent implements OnInit {
 
   tabChoose(choosed){
     this.tabChoosed = choosed;
+  }
+
+  adicionarCliente(){
+    alert("Adicionar Cliente");
   }
 
 }
