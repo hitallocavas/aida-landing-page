@@ -34,7 +34,7 @@ const PrestadorSchema = new mongoose.Schema({
         default: Date.now,
     },
     portfolio:{
-        type: String,
+        type: Array,
         required: false,
     },
     av_prazo: {

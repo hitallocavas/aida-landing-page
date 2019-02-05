@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  tabChoose(choosed){
+  public tabChoose(choosed){
     this.tabChoosed = choosed;
   }
 

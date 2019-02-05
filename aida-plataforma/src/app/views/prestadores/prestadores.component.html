@@ -1,0 +1,82 @@
+<div *ngIf = "principal == true">
+  <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+          <button class="btn btn-primary" (click) = "cadastro()">Adicionar Prestador <span><i class="fas fa-user-plus"></i></span></button> 
+      </div>
+  </div>
+</div>
+
+<div *ngIf = "principal == false" >
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-sm-10" style="margin-top:10px; margin-left:20px;">    
+            <h6>Dados Pessoais</h6>
+            <hr>    
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+            <input class="form-control" id="name" name="name" placeholder="Nome" type="text" [(ngModel)] = "prestador.name" required>
+        </div>
+        <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
+            <input class="form-control" id="idade" name="idade" placeholder="Idade" type="number" [(ngModel)] = "prestador.idade" required>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+            <input class="form-control" id="name" name="name" placeholder="E-mail" type="text" [(ngModel)] = "prestador.email" required>
+        </div>
+        <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
+            <input class="form-control" maxlength="11" id="idade" name="idade" placeholder="Telefone (DDD) + Número" type="number" [(ngModel)] = "prestador.telefone" required>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-sm-10" style="margin-left:20px;">    
+            <h6>Endereço</h6>
+            <hr>    
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+            <input class="form-control" id="name" name="name" placeholder="CEP" type="text" [(ngModel)] = "prestador.cep" required>
+        </div>
+        <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
+            <input class="form-control" id="idade" name="idade" placeholder="Endereço" type="number" [(ngModel)] = "prestador.rua" required>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+            <input class="form-control" id="name" name="name" placeholder="Nº" type="number" [(ngModel)] = "prestador.numero" required>
+        </div>
+        <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
+            <input class="form-control" id="idade" name="idade" placeholder="complemento" type="text" [(ngModel)] = "prestador.complemento" required>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-sm-10" style="margin-left:20px;">    
+            <h6>Dados Profissionais</h6>
+            <hr>    
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+            <input class="form-control" id="funcao" name="funcao" placeholder="Função" type="text" [(ngModel)] = "prestador.funcao" required>
+        </div>
+    </div>
+    <div class="row" >
+
+        <div class="col-lg-10 col-md-10 col-sm-10" style="margin-left:40px; margin-top:20px;">
+            <div>
+                <img *ngFor="let url of urls" style="margin-left:5px;"  [src]="url" class="rounded mb-3" width="180">
+            </div>
+            <label for="imageUpload" class="btn btn-success"><i class="fas fa-plus"></i></label>
+            <input id = "imageUpload" style="display: none" type="file" multiple (change)="detectFiles($event)">
+        </div>
+        
+    </div>
+
+
+
+   
+</div>

@@ -6,15 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './views/home/home.component';
 import { RouterModule } from '@angular/router';
 import { ClientesComponent } from './views/clientes/clientes.component';
+import { PrestadoresComponent } from './views/prestadores/prestadores.component';
+import { InicioComponent } from './views/inicio/inicio.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ClientesComponent
+    ClientesComponent,
+    PrestadoresComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule, 
     AppRoutingModule
   ],
   providers: [],
