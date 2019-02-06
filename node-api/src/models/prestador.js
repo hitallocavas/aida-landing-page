@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const PrestadorSchema = new mongoose.Schema({
     usuario:{
     type:String,
-    required: true,
+    required: false,
     },
     name: {
         type: String,
@@ -59,7 +59,11 @@ const PrestadorSchema = new mongoose.Schema({
     comentarios_clientes: {
         type: Number,
         require: false,
-    }
+    },
+    emailUsuario: {
+        type:String,
+        required: false,
+     }
 });
 
 

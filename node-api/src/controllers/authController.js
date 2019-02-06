@@ -123,7 +123,36 @@ const router = express.Router();
          })
      });
 
-     //FIM DEMONSTRAÇÃO USUARIO
+     //Listar prestadores onde e-mail é igual ao cadastrado
+     router.get("/prestadoresByEmail", function(req,res){
+         
+        Prestador.find({emailUsuario:req.body.email}).then(
+            prestadores => {
+                console.log(req.params.email)
+                res.send(prestadores);
+            }
+        )
+    })
+
+     //FIM SERVIÇOS PRESTADOR
+
+
+     //teste dialogflow
+
+    router.post("/searchforcolaborators", async(req,res)=>{
+        try{
+            Prestador.find({profissional:req.body.queryResult.parameters.colaborador}).then(
+                prestadores => {
+                    //console.log(req.params.email)
+                    res.send(prestadores);
+                }
+            )
+        }
+        catch(err){
+            return res.status(400).send({err});   
+        }
+        
+    });
 
 
 module.exports = app => app.use('/auth', router);
