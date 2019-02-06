@@ -32,7 +32,10 @@ const PrestadorSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    
+    avaliacaoArquiteto:{
+        type: Array,
+        required: false,
+    },
     createAt:{
         type: Date,
         default: Date.now,
@@ -41,29 +44,30 @@ const PrestadorSchema = new mongoose.Schema({
         type: Array,
         required: false,
     },
-    av_prazo: {
+    avPrazo: {
         type: Number,
         require: false,
     },
-    av_atendimento: {
+    avAtendimento: {
         type: Number,
         require: false,
-    },av_orcamento: {
-        type: Number,
-        require: false,
-    },
-    avaliacao_geral: {
+    },avOrcamento: {
         type: Number,
         require: false,
     },
-    comentarios_clientes: {
+    avaliacaoGeral: {
+        type: Number,
+        require: false,
+    },
+    comentariosClientes: {
         type: Number,
         require: false,
     },
     emailUsuario: {
         type:String,
         required: false,
-     }
+    }
+
 });
 
 

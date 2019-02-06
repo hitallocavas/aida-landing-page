@@ -9,6 +9,8 @@ import { ClientesComponent } from './views/clientes/clientes.component';
 import { PrestadoresComponent } from './views/prestadores/prestadores.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
+import { AidaServiceComponent } from './aida-service/aida-service.component';
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { FormsModule } from '@angular/forms';
     ClientesComponent,
     PrestadoresComponent,
     InicioComponent,
+    AidaServiceComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule, 
+    RatingModule,
     AppRoutingModule
   ],
   providers: [],

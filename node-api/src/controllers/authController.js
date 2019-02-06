@@ -8,7 +8,7 @@ const router = express.Router();
 
     // SERVIÇOS DE USUÁRIO
 
-    router.post("/register", async (req,res) => {
+    router.post("/register",async (req,res) => {
         try {
             const {email} = req.body;
                 if(await User.findOne({email})){

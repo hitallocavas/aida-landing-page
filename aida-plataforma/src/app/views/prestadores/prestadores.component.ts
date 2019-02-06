@@ -68,6 +68,7 @@ export class PrestadoresComponent implements OnInit {
   private principal:boolean = true;
   private prestador:Object = new Object();
   private urls = new Array<string>();
+  private avGeral:Number = 0;
   constructor() { }
 
   ngOnInit() {
