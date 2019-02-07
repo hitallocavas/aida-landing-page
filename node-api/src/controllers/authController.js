@@ -134,6 +134,15 @@ const router = express.Router();
         )
     })
 
+     //Listar prestadores onde e-mail é igual ao cadastrado
+     router.get("/prestadoresById", function(req,res){
+        Prestador.findOne({_id:req.params.id}).then(
+            prestador => {
+                res.send(prestador);
+            }
+        )
+    })
+
      //FIM SERVIÇOS PRESTADOR
 
 

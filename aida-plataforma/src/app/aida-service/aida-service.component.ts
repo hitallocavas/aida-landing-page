@@ -19,7 +19,11 @@ export class AidaService{
   }
 
   getPrestadores():Promise<any>{
-    return this.http.get(this.urlService + "/prestadores").toPromise();
+    return this.http.get(this.urlService + "prestadores").toPromise();
+  }
+
+  getPrestadorById(id):Promise<any>{
+    return this.http.get(this.urlService + "prestadoresById", {params:{"id":id}}).toPromise();
   }
 
 }

@@ -25,10 +25,10 @@
                       </thead>
                       <tbody>
                               <tr *ngFor = "let prestador of listaPrestadores">
-                                <td class="col-lg-6 col-md-6 col-sm-6">{{prestador.name}}</td>
-                                <td>{{prestador.telefone}}</td>
-                                <td>{{prestador.email}}</td>
-                                <td>{{prestador.profissional}}</td>
+                                <td (click) = "showPrestador(prestador)" class="col-lg-6 col-md-6 col-sm-6">{{prestador.name}}</td>
+                                <td (click) = "showPrestador(prestador)">{{prestador.telefone}}</td>
+                                <td (click) = "showPrestador(prestador)">{{prestador.email}}</td>
+                                <td (click) = "showPrestador(prestador)">{{prestador.profissional}}</td>
                               </tr>
                             </tbody>
                     </table>

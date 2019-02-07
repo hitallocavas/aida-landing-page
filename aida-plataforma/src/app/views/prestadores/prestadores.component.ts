@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { AidaService } from 'src/app/aida-service/aida-service.component';
 import { Prestador } from 'src/app/models/prestador.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prestadores',
@@ -22,7 +23,8 @@ export class PrestadoresComponent implements OnInit {
 
   private listaPrestadores:Object[] = [];
  
-  constructor(private aidaService:AidaService) {  
+  constructor(private aidaService:AidaService,
+    private router: Router,) {  
   }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class PrestadoresComponent implements OnInit {
 
   private cadastro(){
     this.principal = false;
+  }
+
+  private showPrestador(prestador){
+    this.router.navigate(['prestador',prestador["_id"]]);
   }
 
   private changeRate(){
