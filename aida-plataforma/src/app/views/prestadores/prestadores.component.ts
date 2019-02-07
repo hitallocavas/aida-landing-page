@@ -72,8 +72,12 @@ export class PrestadoresComponent implements OnInit {
   private confirmarCadastro(){
     this.prestador["emailUsuario"] = "hcs3@cin.ufpe.br";
     this.prestador["portfolio"] = this.urls;
-    this.prestador["avaliacaoArquiteto"] = new Array<Number>();
-    this.prestador["avaliacaoArquiteto"].push(this.avGeral,this.avOrcamento, this.avAtendimento, this.avPrazo, this.avQualidade);
+    this.prestador["avaliacaoArquiteto"] = new Object();
+    this.prestador["avaliacaoArquiteto"]["avGeral"] = this.avGeral;
+    this.prestador["avaliacaoArquiteto"]["avOrcamento"] = this.avOrcamento;
+    this.prestador["avaliacaoArquiteto"]["avAtendimento"] = this.avAtendimento;
+    this.prestador["avaliacaoArquiteto"]["avPrazo"] = this.avPrazo;
+    this.prestador["avaliacaoArquiteto"]["avQualidade"] = this.avQualidade;
 
     this.aidaService.cadastrarPrestador(this.prestador).then(
       data => {

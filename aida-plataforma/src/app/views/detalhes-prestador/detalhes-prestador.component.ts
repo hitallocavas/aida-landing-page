@@ -10,7 +10,15 @@ import { AidaService } from 'src/app/aida-service/aida-service.component';
 export class DetalhesPrestadorComponent implements OnInit {
 
   private id:String = "";
+  private carregado:boolean = false;
   private prestador:Object = new Object();
+  private avQualidade:Number = 0;
+  private avPrazo:Number = 0;
+  private avOrcamento:Number = 0;
+  private avAtendimento:Number = 0;
+  private avGeral:Number = 0;
+  private nome:String = "";
+
   constructor(private route: ActivatedRoute,
               private aidaService:AidaService) { }
 
@@ -22,9 +30,20 @@ export class DetalhesPrestadorComponent implements OnInit {
 
     var aidi:Object = new Object();
     aidi["id"] = this.id;
-    console.log(aidi);
-    this.aidaService.getPrestadorById(this.id).then(
-      data => console.log(data)
+    
+    this.aidaService.getPrestadorById(aidi).then(
+      data => {
+        this.prestador = data;
+        this.carregado = true;
+        this.avGeral = data["avaliacaoArquiteto"]["avGeral"];
+        this.avQualidade = data["avaliacaoArquiteto"]["avQualidade"];
+        this.avOrcamento = data["avaliacaoArquiteto"]["avOrcamento"];
+        this.avAtendimento = data["avaliacaoArquiteto"]["avAtendimento"];
+        this.avPrazo = data["avaliacaoArquiteto"]["avPrazo"];
+        this.nome = data["name"];
+        this.prestador["profissional"] = this.prestador["profissional"].charAt(0).toUpperCase() + this.prestador["profissional"].slice(1);
+        
+      }
     )
 
   }

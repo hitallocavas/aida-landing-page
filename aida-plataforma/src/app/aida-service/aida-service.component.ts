@@ -23,7 +23,8 @@ export class AidaService{
   }
 
   getPrestadorById(id):Promise<any>{
-    return this.http.get(this.urlService + "prestadoresById", {params:{"id":id}}).toPromise();
+    console.log(id);
+    return this.http.post(this.urlService + "prestadoresById",id).toPromise();
   }
 
 }

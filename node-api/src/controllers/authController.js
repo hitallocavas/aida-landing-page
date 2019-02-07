@@ -132,16 +132,17 @@ const router = express.Router();
                 res.send(prestadores);
             }
         )
-    })
+    });
 
      //Listar prestadores onde e-mail é igual ao cadastrado
-     router.get("/prestadoresById", function(req,res){
-        Prestador.findOne({_id:req.params.id}).then(
+     router.post("/prestadoresById", function(req,res){
+        console.log(req.body);
+        Prestador.findById(req.body.id).then(
             prestador => {
                 res.send(prestador);
             }
         )
-    })
+    });
 
      //FIM SERVIÇOS PRESTADOR
 
@@ -161,6 +162,13 @@ const router = express.Router();
             return res.status(400).send({err});   
         }
         
+    });
+
+    router.put("/prestador", async(req,res)=>{
+        Prestador.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
+            if (err) return next(err);
+            res.send('Product udpated.');
+        });
     });
 
 

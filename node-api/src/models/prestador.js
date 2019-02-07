@@ -29,7 +29,7 @@ const PrestadorSchema = new mongoose.Schema({
         required: true,
     },
     avaliacaoArquiteto:{
-        type: Array,
+        type: Object,
         required: false,
     },
     createAt:{
@@ -62,6 +62,10 @@ const PrestadorSchema = new mongoose.Schema({
     emailUsuario: {
         type:String,
         required: true,
+    },
+    url:{
+        type:String,
+        required:false,
     }
 
 });
