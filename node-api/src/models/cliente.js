@@ -45,7 +45,7 @@ const ClienteSchema = new mongoose.Schema({
         required: true,
     },
     visitasAgendadas: {
-        type: String,
+        type: Array,
         required: false,
     }
 });

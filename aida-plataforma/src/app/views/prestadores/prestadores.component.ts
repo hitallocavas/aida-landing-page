@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
+import { AidaService } from 'src/app/aida-service/aida-service.component';
+import { Prestador } from 'src/app/models/prestador.model';
 
 @Component({
   selector: 'app-prestadores',
@@ -8,77 +10,45 @@ import { HomeComponent } from '../home/home.component';
 })
 export class PrestadoresComponent implements OnInit {
 
-   prestadorSchema = ({
-    name: {
-        type: String,
-        require: true,
-    },
-    idade: {
-        type: String,
-        require: true,
-    },
-    email:{
-        type: String,
-        unique:true,
-        required: true,
-        lowercase: true,
-    },
-    endereco: {
-        type: String,
-        require: false,
-    },
-    profissional: {
-        type: String,
-        require: true,
-    },
-    telefone: {
-        type: String,
-        required: true,
-    },
-    
-    createAt:{
-        type: Date,
-        default: Date.now,
-    },
-    portfolio:{
-        type: String,
-        required: false,
-    },
-    av_prazo: {
-        type: Number,
-        require: false,
-    },
-    av_atendimento: {
-        type: Number,
-        require: false,
-    },av_orcamento: {
-        type: Number,
-        require: false,
-    },
-    avaliacao_geral: {
-        type: Number,
-        require: false,
-    },
-    comentarios_clientes: {
-        type: Number,
-        require: false,
-    }
-});
-
   private principal:boolean = true;
-  private prestador:Object = new Object();
-  private urls = new Array<string>();
+  private urls = new Array<String>();
+  private avQualidade:Number = 0;
+  private avPrazo:Number = 0;
+  private avOrcamento:Number = 0;
+  private avAtendimento:Number = 0;
   private avGeral:Number = 0;
-  constructor() { }
+  private prestadorModel:Prestador;
+  private prestador:Object = new Object();
 
-  ngOnInit() {
+  private listaPrestadores:Object[] = [];
+ 
+  constructor(private aidaService:AidaService) {  
   }
 
-  cadastro(){
+  ngOnInit() {
+    this.initListaPrestadores();
+  }
+
+  private initListaPrestadores(){
+    this.aidaService.getPrestadores().then(
+      data => {
+        data.map(item => {
+          console.log(item);
+          this.listaPrestadores.push(item);
+        })
+      }
+    )
+  }
+
+  private cadastro(){
     this.principal = false;
   }
 
-  detectFiles(event) {
+  private changeRate(){
+    this.avGeral = (this.avAtendimento.valueOf() + this.avPrazo.valueOf() + this.avQualidade.valueOf() + this.avOrcamento.valueOf())/4;
+  }
+
+  private detectFiles(event) {
     this.urls = [];
     let files = event.target.files;
     if (files) {
@@ -91,6 +61,21 @@ export class PrestadoresComponent implements OnInit {
         console.log(this.urls);
       }
     }
+  }
+
+  private confirmarCadastro(){
+    this.prestador["emailUsuario"] = "hcs3@cin.ufpe.br";
+    this.prestador["portfolio"] = this.urls;
+    this.prestador["avaliacaoArquiteto"] = new Array<Number>();
+    this.prestador["avaliacaoArquiteto"].push(this.avGeral,this.avOrcamento, this.avAtendimento, this.avPrazo, this.avQualidade);
+
+    this.aidaService.cadastrarPrestador(this.prestador).then(
+      data => {
+        console.log(data);
+        this.principal = true;
+      }
+    )
+
   }
 
 }

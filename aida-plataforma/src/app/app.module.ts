@@ -9,8 +9,10 @@ import { ClientesComponent } from './views/clientes/clientes.component';
 import { PrestadoresComponent } from './views/prestadores/prestadores.component';
 import { InicioComponent } from './views/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
-import { AidaServiceComponent } from './aida-service/aida-service.component';
+import { AidaService } from './aida-service/aida-service.component';
 import {RatingModule} from 'primeng/rating';
+import { HttpClientModule } from '@angular/common/http';
+import { DetalhesPrestadorComponent } from './views/detalhes-prestador/detalhes-prestador.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,16 @@ import {RatingModule} from 'primeng/rating';
     ClientesComponent,
     PrestadoresComponent,
     InicioComponent,
-    AidaServiceComponent,
+    DetalhesPrestadorComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule, 
     RatingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AidaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

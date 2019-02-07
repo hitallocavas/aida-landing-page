@@ -5,6 +5,7 @@ import { HomeComponent } from './views/home/home.component';
 import { ClientesComponent } from './views/clientes/clientes.component';
 import { PrestadoresComponent } from './views/prestadores/prestadores.component';
 import { InicioComponent } from './views/inicio/inicio.component';
+import { DetalhesPrestadorComponent } from './views/detalhes-prestador/detalhes-prestador.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent
@@ -27,6 +28,10 @@ const routes:Routes = [
     }
   ]
   },
+  {
+    path:"prestador/:id",
+    component: DetalhesPrestadorComponent
+  }
  
 ]
 

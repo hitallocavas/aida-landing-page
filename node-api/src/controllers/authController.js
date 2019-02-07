@@ -114,7 +114,7 @@ const router = express.Router();
      });
  
      //Delete prestadores
-     router.delete("/Prestadores", function(req,res){
+     router.delete("/PrestadoresDeletar", function(req,res){
          console.log(req);
          var prestador;
          prestador = Prestador.findOneAndDelete(req.params.email, function(err){

@@ -2,16 +2,12 @@ const mongoose = require('../database/index');
 const bcrypt = require('bcryptjs');
 
 const PrestadorSchema = new mongoose.Schema({
-    usuario:{
-    type:String,
-    required: false,
-    },
     name: {
         type: String,
         require: true,
     },
     idade: {
-        type: String,
+        type: Number,
         require: true,
     },
     email:{
@@ -57,7 +53,7 @@ const PrestadorSchema = new mongoose.Schema({
     },
     avaliacaoGeral: {
         type: Number,
-        require: false,
+        require: true,
     },
     comentariosClientes: {
         type: Number,
@@ -65,7 +61,7 @@ const PrestadorSchema = new mongoose.Schema({
     },
     emailUsuario: {
         type:String,
-        required: false,
+        required: true,
     }
 
 });

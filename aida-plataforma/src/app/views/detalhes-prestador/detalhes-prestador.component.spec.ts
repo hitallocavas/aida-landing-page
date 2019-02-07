@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AidaServiceComponent } from './aida-service.component';
+import { DetalhesPrestadorComponent } from './detalhes-prestador.component';
 
-describe('AidaServiceComponent', () => {
-  let component: AidaServiceComponent;
-  let fixture: ComponentFixture<AidaServiceComponent>;
+describe('DetalhesPrestadorComponent', () => {
+  let component: DetalhesPrestadorComponent;
+  let fixture: ComponentFixture<DetalhesPrestadorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AidaServiceComponent ]
+      declarations: [ DetalhesPrestadorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AidaServiceComponent);
+    fixture = TestBed.createComponent(DetalhesPrestadorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
