@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PrestadoresComponent implements OnInit {
 
-  private principal:boolean = true;
+  principal:boolean = true;
   private urls = new Array<String>();
   private avQualidade:Number = 0;
   private avPrazo:Number = 0;
