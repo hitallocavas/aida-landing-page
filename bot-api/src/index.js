@@ -7,7 +7,7 @@ const Cliente = require('./models/cliente');
 const Prestador = require('./models/prestador');
 const app = express();
 const bot = new TelegramBot(token, {polling: true});
-var tipoProfissional = "";
+var messageAnterior = "";
 var sim = false;
     
 
@@ -31,34 +31,32 @@ app.use(function (req, res, next) {
 });
 
 bot.on('message', (msg) => {
-    bot.sendMessage(msg.chat.id,"Olá, "+ msg.from.first_name +" como vai? Eu sou a Aida e estou aqui para te ajudar na busca de um prestador de serviço. Que tipo de profissional você deseja?");
+    
+    bot.onText(/\/start/, (msg) => {
 
-    bot.on('message', (msg) => {
-        tipoProfissional = msg.text.toString();
-            bot.on('message',(msg) => {
-                console.log(tipoProfissional)
-                    bot.sendMessage(msg.chat.id, "Ok, "+msg.from.first_name+". Para qual tipo de serviço?").then(()=>{
-                      bot.on('message', (msg) => {
-                        sim = true;
-                        if (sim == true && (tipoProfissional.toLowerCase().includes("pedreiro")|| 
-                            tipoProfissional.toLowerCase().includes("encanador")|| tipoProfissional.toLowerCase().
-                                includes("marceneiro")||tipoProfissional.toLowerCase().includes("eletricista")|| 
-                                tipoProfissional.toLowerCase().includes("gesseiro")|| tipoProfissional.toLowerCase().includes("carpinteiro")|| 
-                                tipoProfissional.toLowerCase().includes("serviços gerais")|| tipoProfissional.toLowerCase().includes("pintor"))){
-                                    bot.sendMessage(msg.chat.id,"Agora aguarde só mais uns segundos pois estamos coletando os melhores profissionais!");
-                                        Prestador.find({profissional:tipoProfissional.toLowerCase()}).then(
-                                            prestadores =>{
-                                                bot.sendMessage(msg.chat.id, "Quase terminando...")
-                                                    prestadores.forEach(function(prestador){
-                                                        telefone = "" + prestador.telefone + "";
-                                                        bot.sendMessage(msg.chat.id,"Nome: " + prestador.name + 
-                                                        "\nTelefone: "+prestador.telefone);       
-                                                    })
-                                            }
-                                        )
-                                } 
+        bot.sendMessage(msg.chat.id,"Olá, "+ msg.from.first_name +" como vai? Eu sou a Aida e estou aqui para te ajudar na busca de um prestador de serviço. Que tipo de profissional você deseja?").then(data => {
+            this.messageAnterior = "inicio";
+        });
+            
+    });
+    
+    
+    if (msg.text.toString().toLowerCase().includes("pedreiro")|| 
+        msg.text.toString().toLowerCase().includes("encanador")|| msg.text.toString().toLowerCase().
+        includes("marceneiro")||msg.text.toString().toLowerCase().includes("eletricista")|| 
+        msg.text.toString().toLowerCase().includes("gesseiro")|| msg.text.toString().toLowerCase().includes("carpinteiro")|| 
+            msg.text.toString().toLowerCase().includes("serviços gerais")|| msg.text.toString().toLowerCase().includes("pintor")){
+                Prestador.find({profissional:msg.text.toString().toLowerCase()}).then(
+                    prestadores =>{
+                        bot.sendMessage(msg.chat.id, "Quase terminando...")
+                            prestadores.forEach(function(prestador){
+                                telefone = "" + prestador.telefone + "";
+                                bot.sendMessage(msg.chat.id,"Nome: " + prestador.name + 
+                                "\nTelefone: "+prestador.telefone);       
                             })
-                        })        
-                    })
-            })
-    })
+                            this.messageAnterior = "contato"
+                    }
+                )
+        } 
+})
+

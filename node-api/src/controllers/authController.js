@@ -91,14 +91,8 @@ const router = express.Router();
     
     router.post("/cadastroPrestador", async (req,res) => {
         try {
-            const {email} = req.body;
-                if(await Prestador.findOne({email})){
-                    res.status(400).send({error:'E-mail Já cadastrado'});
-                }
-
             const prestador = await Prestador.create(req.body);
             return res.send(prestador);
-            
         } 
         catch (err) {
             return res.status(400).send({err});   
@@ -164,10 +158,9 @@ const router = express.Router();
         
     });
 
-    router.put("/prestador", async(req,res)=>{
-        Prestador.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
-            if (err) return next(err);
-            res.send('Product udpated.');
+    router.put("/prestadorUrl", async(req,res)=>{
+        Prestador.findByIdAndUpdate(req.body._id, {UrlPerfil: req.body.UrlPerfil}, function (err, product) {
+            res.send('Prestador udpated.');
         });
     });
 
