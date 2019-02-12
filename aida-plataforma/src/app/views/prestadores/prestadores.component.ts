@@ -34,10 +34,11 @@ export class PrestadoresComponent implements OnInit {
   private initListaPrestadores(){
     this.aidaService.getPrestadores().then(
       data => {
-        data.map(item => {
-          console.log(item);
-          this.listaPrestadores.push(item);
-        })
+        console.log(data);
+          data.map(item => {
+            console.log(item);
+            this.listaPrestadores.push(item);
+          })
       }
     )
   }
@@ -51,7 +52,19 @@ export class PrestadoresComponent implements OnInit {
   }
 
   private changeRate(){
-    this.avGeral = (this.avAtendimento.valueOf() + this.avPrazo.valueOf() + this.avQualidade.valueOf() + this.avOrcamento.valueOf())/4;
+    let sumavGeral = (this.avAtendimento.valueOf() + this.avPrazo.valueOf() + this.avQualidade.valueOf() + this.avOrcamento.valueOf());
+    if(sumavGeral == 20){
+      this.avGeral = 5
+    }
+    else{
+      this.avGeral = (sumavGeral/4);
+      if((this.avGeral.valueOf() % 10.0) <= 0.5){
+        this.avGeral = this.avGeral.valueOf() - 1;
+      }
+      else{
+        this.avGeral = this.avGeral.valueOf();
+      }
+    }
   }
 
   private detectFiles(event) {
@@ -78,11 +91,17 @@ export class PrestadoresComponent implements OnInit {
     this.prestador["avaliacaoArquiteto"]["avAtendimento"] = this.avAtendimento;
     this.prestador["avaliacaoArquiteto"]["avPrazo"] = this.avPrazo;
     this.prestador["avaliacaoArquiteto"]["avQualidade"] = this.avQualidade;
+    this.prestador["profissional"] = this.prestador["profissional"].toLowerCase();
 
+    console.log(this.prestador)
     this.aidaService.cadastrarPrestador(this.prestador).then(
       data => {
         console.log(data);
+        let envio:Object = new Object();
         this.principal = true;
+        envio["_id"] = data["_id"];
+        envio["UrlPerfil"] = "http://localhost:4200/prestador/" + data["_id"];
+        this.aidaService.atualizarPrestador(envio).then(data => this.principal = false);
       }
     )
 

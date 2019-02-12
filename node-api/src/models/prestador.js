@@ -8,13 +8,11 @@ const PrestadorSchema = new mongoose.Schema({
     },
     idade: {
         type: Number,
-        require: true,
+        require: false,
     },
     email:{
         type: String,
-        unique:true,
-        required: true,
-        lowercase: true,
+        required: false,
     },
     endereco: {
         type: String,
@@ -30,7 +28,7 @@ const PrestadorSchema = new mongoose.Schema({
     },
     avaliacaoArquiteto:{
         type: Object,
-        required: false,
+        required: true,
     },
     createAt:{
         type: Date,
@@ -53,17 +51,25 @@ const PrestadorSchema = new mongoose.Schema({
     },
     avaliacaoGeral: {
         type: Number,
-        require: true,
+        require: false,
     },
     comentariosClientes: {
+        type: String,
+        require: false,
+    },
+    valorMedio: {
         type: Number,
         require: false,
     },
+    tipoServico:{
+        type: String,
+        require:true
+    },
     emailUsuario: {
         type:String,
-        required: true,
+        required: false,
     },
-    url:{
+    UrlPerfil:{
         type:String,
         required:false,
     }

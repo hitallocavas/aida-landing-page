@@ -56,15 +56,15 @@
             <input class="form-control" id="name" name="name" placeholder="Nome" type="text" [(ngModel)] = "prestador.name" required>
         </div>
         <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-            <input class="form-control" id="idade" name="idade" placeholder="Idade" type="number" [(ngModel)] = "prestador.idade" required>
+            <input class="form-control" id="idade" name="idade" placeholder="Idade" type="number" [(ngModel)] = "prestador.idade">
         </div>
     </div>
     <div class="row" >
         <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
-            <input class="form-control" id="name" name="name" placeholder="E-mail" type="text" [(ngModel)] = "prestador.email" required>
+            <input class="form-control" id="name" name="name" placeholder="E-mail" type="text" [(ngModel)] = "prestador.email">
         </div>
         <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-            <input class="form-control" maxlength="11" id="idade" name="idade" placeholder="Telefone (DDD) + Número" type="number" [(ngModel)] = "prestador.telefone" required>
+            <input class="form-control" maxlength="11" id="idade" name="idade" placeholder="Telefone (DDD) + Número" type="text" [(ngModel)] = "prestador.telefone" required>
         </div>
     </div>
     <br><br>
@@ -76,18 +76,18 @@
     </div>
     <div class="row" >
         <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
-            <input class="form-control" id="name" name="name" placeholder="CEP" type="text" [(ngModel)] = "prestador.cep" required>
+            <input class="form-control" id="name" name="name" placeholder="CEP" type="text" [(ngModel)] = "prestador.cep">
         </div>
         <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-            <input class="form-control" id="idade" name="idade" placeholder="Endereço" type="text" [(ngModel)] = "prestador.rua" required>
+            <input class="form-control" id="idade" name="idade" placeholder="Endereço" type="text" [(ngModel)] = "prestador.rua">
         </div>
     </div>
     <div class="row" >
         <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
-            <input class="form-control" id="name" name="name" placeholder="Nº" type="number" [(ngModel)] = "prestador.numero" required>
+            <input class="form-control" id="name" name="name" placeholder="Nº" type="number" [(ngModel)] = "prestador.numero">
         </div>
         <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-            <input class="form-control" id="idade" name="idade" placeholder="complemento" type="text" [(ngModel)] = "prestador.complemento" required>
+            <input class="form-control" id="idade" name="idade" placeholder="complemento" type="text" [(ngModel)] = "prestador.complemento">
         </div>
     </div>
     <br><br>
@@ -100,6 +100,12 @@
     <div class="row" >
         <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
             <input class="form-control" id="funcao" name="funcao" placeholder="Função" type="text" [(ngModel)] = "prestador.profissional" required>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+                <input class="form-control" id="tipoServico" name="tipoServico" placeholder="Especialidades" type="text" [(ngModel)] = "prestador.tipoServico" required>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
+                <input class="form-control" id="valorMedio" name="valorMedio" placeholder="Valor Médio por Obra" type="number" [(ngModel)] = "prestador.valorMedio" required>
         </div>
     </div>
     <div class="row" >
@@ -137,13 +143,13 @@
                     <div class="col-md-6 col-lg-6 col-sm-6">
                         <br>
                             <h6 style="margin-left:40px;">Qualidade do Serviço:</h6> &nbsp; <span><p-rating (onRate) = "changeRate()" style="display:inline-block;  margin-left:30px;" [(ngModel)]="avQualidade" 
-                            [cancel]="false"></p-rating>
+                            [cancel]="false" required></p-rating>
                         </span> 
                     </div>
                     <div class="col-md-6 col-lg-6 col-sm-6">
                         <br>
                             <h6 style="margin-left:40px;">Prazo:</h6> &nbsp; <span><p-rating (onRate) = "changeRate()" style="display:inline-block; margin-left:30px;" [(ngModel)]="avPrazo" 
-                            [cancel]="false"></p-rating>
+                            [cancel]="false" required></p-rating>
                         </span> 
                     </div>
                 </div><br>
@@ -151,13 +157,13 @@
                     <div class="col-md-6 col-lg-6 col-sm-6">
                         <br>
                             <h6 style="margin-left:40px;">Orçamento:</h6> &nbsp; <span><p-rating (onRate) = "changeRate()" style="display:inline-block; margin-left:30px;" [(ngModel)]="avOrcamento" 
-                            [cancel]="false"></p-rating>
+                            [cancel]="false" required></p-rating>
                         </span> 
                     </div>
                     <div class="col-md-6 col-lg-6 col-sm-6">
                         <br>
                             <h6 style="margin-left:40px;">Atendimento:</h6> &nbsp; <span><p-rating (onRate) = "changeRate()" style="display:inline-block; margin-left:30px;" [(ngModel)]="avAtendimento" 
-                            [cancel]="false"></p-rating>
+                            [cancel]="false" required></p-rating>
                         </span> 
                     </div>
                 </div> <br>

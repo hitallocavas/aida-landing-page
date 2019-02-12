@@ -27,4 +27,8 @@ export class AidaService{
     return this.http.post(this.urlService + "prestadoresById",id).toPromise();
   }
 
+  atualizarPrestador(prestador):Promise<any>{
+    return this.http.put(this.urlService + "prestadorUrl",prestador).toPromise();
+  }
+
 }
