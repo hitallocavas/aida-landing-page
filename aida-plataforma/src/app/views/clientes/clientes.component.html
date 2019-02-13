@@ -1,6 +1,6 @@
 <div *ngIf = "principal == true" class="row">
     <div class="col-lg-3 col-md-3 col-sm-3">
-        <button type="button" class="btn btn-primary btn-md" (click) = "adicionarCliente()">Adicionar Cliente <span><i class="fas fa-user-plus"></i></span></button>
+        <button type="button" style="bottom: 20px; right: 350px; border-radius: 50%; width: 70px; height: 70px; position: fixed; background-color: #3e606f;" class="btn btn-md" (click) = "adicionarCliente()"><i style="font-size: 24pt; color: white;" class="fas fa-address-book"></i></button>
     </div>
 </div>
 
@@ -13,18 +13,18 @@
         </div>
         <div class="row" >
             <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
-                <input class="form-control" id="name" name="name" placeholder="Nome" type="text" [(ngModel)] = "prestador.name" required>
+                <input class="form-control" id="name" name="name" placeholder="Nome" type="text" [(ngModel)] = "cliente.name" required>
             </div>
             <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-                <input class="form-control" id="idade" name="idade" placeholder="Idade" type="number" [(ngModel)] = "prestador.idade">
+                <input class="form-control" id="idade" name="idade" placeholder="Idade" type="number" [(ngModel)] = "cliente.idade">
             </div>
         </div>
         <div class="row" >
             <div class="col-lg-3 col-md-3 col-sm-3" style="margin-left:40px; margin-top:10px;">
-                <input class="form-control" id="name" name="name" placeholder="E-mail" type="text" [(ngModel)] = "prestador.email">
+                <input class="form-control" id="name" name="name" placeholder="E-mail" type="text" [(ngModel)] = "cliente.email">
             </div>
             <div style="margin-left:10px; margin-top:10px;" class="col-lg-3 col-md-3 col-sm-3">
-                <input class="form-control" maxlength="11" id="idade" name="idade" placeholder="Telefone (DDD) + Número" type="text" [(ngModel)] = "prestador.telefone" required>
+                <input class="form-control" maxlength="11" id="idade" name="idade" placeholder="Telefone (DDD) + Número" type="text" [(ngModel)] = "cliente.telefone" required>
             </div>
         </div>
         <br><br>
