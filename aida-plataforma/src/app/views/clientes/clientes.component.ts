@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AidaService } from 'src/app/aida-service/aida-service.component';
 
 @Component({
   selector: 'app-clientes',
@@ -10,10 +11,21 @@ export class ClientesComponent implements OnInit {
   principal:Boolean = true;
   cliente:Object = new Object();
   private urls = new Array<String>();
+  private listaClientes:Object[] = [];
 
-  constructor() { }
+  constructor(private service:AidaService) { }
 
   ngOnInit() {
+
+    this.service.getClientes().then(
+      data => {
+        console.log(data);
+          data.map(item => {
+            console.log(item);
+            this.listaClientes.push(item);
+          })
+      }
+    )
 
   }
 
@@ -22,6 +34,10 @@ export class ClientesComponent implements OnInit {
   }
 
   confirmarCadastro(){
+    this.cliente["fotosProjeto"] = this.urls;
+    console.log(this.cliente);
+    this.service.cadastrarCliente(this.cliente).then(data => console.log(data));
+    
 
   }
 

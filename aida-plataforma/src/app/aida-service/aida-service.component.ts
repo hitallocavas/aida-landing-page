@@ -17,9 +17,16 @@ export class AidaService{
   cadastrarPrestador(prestador):Promise<any>{
     return this.http.post(this.urlService + "cadastroPrestador",prestador).toPromise();
   }
+  cadastrarCliente(cliente):Promise<any>{
+    return this.http.post(this.urlService + "cadastroCliente",cliente).toPromise();
+  }
 
   getPrestadores():Promise<any>{
     return this.http.get(this.urlService + "prestadores").toPromise();
+  }
+
+  getClientes():Promise<any>{
+    return this.http.get(this.urlService + "clientes").toPromise();
   }
 
   getPrestadorById(id):Promise<any>{

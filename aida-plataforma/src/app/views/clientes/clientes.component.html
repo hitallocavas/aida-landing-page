@@ -1,12 +1,50 @@
+<br>
 <div *ngIf = "principal == true" class="row">
+        <div *ngIf = "listaClientes?.length > 0" class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"> 
+                <div class="row">     
+                 <div style="margin-left:40px; margin-top:10px;" class="panel panel-default panel-table">
+                       <div class="panel-heading">
+                            
+                         <div class="row">
+                             <div class="col-md-8 col-lg-8 col-sm-8">
+                                     <h4>Lista de Clientes</h4><br>
+                             </div>
+                         </div>
+     
+                       </div>
+                 
+                       <div class="panel-body">
+                         <table class="table table-striped table-bordered table-list">
+                           <thead>
+                             <tr>
+                                 <th>Nome</th>
+                                 <th>Telefone</th>
+                                 <th>Orçamento</th>
+                             </tr> 
+                           </thead>
+                           <tbody>
+                                   <tr *ngFor = "let prestador of listaClientes">
+                                     <td (click) = "showPrestador(prestador)" class="col-lg-6 col-md-6 col-sm-6">{{prestador.name}}</td>
+                                     <td (click) = "showPrestador(prestador)">{{prestador.telefone}}</td>
+                                     <td (click) = "showPrestador(prestador)">{{prestador.orcamento}}</td>
+                                   </tr>
+                             </tbody>
+                         </table>
+                       </div>
+                     </div>
+                 </div>
+             </div>
+
     <div class="col-lg-3 col-md-3 col-sm-3">
         <button type="button" style="bottom: 20px; right: 350px; border-radius: 50%; width: 70px; height: 70px; position: fixed; background-color: #3e606f;" class="btn btn-md" (click) = "adicionarCliente()"><i style="font-size: 24pt; color: white;" class="fas fa-address-book"></i></button>
     </div>
+
 </div>
 
 <div *ngIf = "principal == false" >
+    <br>
         <div class="row">
-            <div class="col-md-10 col-lg-10 col-sm-10" style="margin-top:10px; margin-left:20px;">    
+            <div class="col-md-8 col-lg-8 col-sm-8" style="margin-top:10px; margin-left:20px;">    
                 <h6>Dados Pessoais</h6>
                 <hr>    
             </div>
@@ -29,7 +67,7 @@
         </div>
         <br><br>
         <div class="row">
-            <div class="col-md-10 col-lg-10 col-sm-10" style="margin-left:20px;">    
+            <div class="col-md-8 col-lg-8 col-sm-8" style="margin-left:20px;">    
                 <h6>Endereço</h6>
                 <hr>    
             </div>
@@ -52,7 +90,7 @@
         </div>
         <br><br>
         <div class="row">
-            <div class="col-md-10 col-lg-10 col-sm-10" style="margin-left:20px;">    
+            <div class="col-md-8 col-lg-8 col-sm-8" style="margin-left:20px;">    
                 <h6>Projeto</h6>
                 <hr>    
             </div>
@@ -69,7 +107,7 @@
         </div>
         <div class="row" >
     
-            <div class="col-lg-10 col-md-10 col-sm-10" style="margin-left:40px; margin-top:20px;">
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin-left:40px; margin-top:20px;">
                 <div class="card" style="width: 98%;">
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div style="margin-top: -10px;" class="card-body"><br>
@@ -85,6 +123,21 @@
                     </div>    
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8" style="margin-left:40px; margin-top:20px;">
+                <div class="col-md-3 col-sm-3 col-lg-3"> 
+                        <input class="form-control" id="name" name="name" placeholder="Orçamento" type="number" [(ngModel)] = "cliente.orcamento">
+                </div><br>
+                <div class="col-md-3 col-sm-3 col-lg-3"> 
+                        Prazo: <input class="form-control" id="name" name="name" placeholder="Prazo" type="date" [(ngModel)] = "cliente.prazo">
+                </div><br>
+                <div class="col-md-3 col-sm-3 col-lg-3"> 
+                        Visita Agendada:<input class="form-control" id="name" name="name" placeholder="Visita Agendada" type="date" [(ngModel)] = "cliente.visitasAgendadas">
+                </div>
+            </div>
+
         </div>
         <br>
         <br>

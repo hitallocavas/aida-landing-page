@@ -8,9 +8,8 @@ const ClienteSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        unique:true,
-        required: true,
         lowercase: true,
+        required: false,
     },
     endereco: {
         type: String,
@@ -18,6 +17,10 @@ const ClienteSchema = new mongoose.Schema({
     },
     fotoPerfil:{
         type: String,
+        required: false,
+    },
+    fotosProjeto:{
+        type: Array,
         required: false,
     },
     telefone: {
@@ -32,20 +35,16 @@ const ClienteSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    obras:{
-        type: String,
-        required: true,
-    },
     orcamento:{
         type: Number,
         required:true,
     },
     prazo: {
-        type: String,
+        type: Date,
         required: true,
     },
     visitasAgendadas: {
-        type: Array,
+        type: Date,
         required: false,
     }
 });

@@ -50,14 +50,8 @@ const router = express.Router();
     
     router.post("/cadastroCliente", async (req,res) => {
         try {
-            const {email} = req.body;
-                if(await Cliente.findOne({email})){
-                    res.status(400).send({error:'E-mail Já cadastrado'});
-                }
-
             const cliente = await Cliente.create(req.body);
-            return res.send(cliente);
-            
+            return res.send(cliente);    
         } 
         catch (err) {
             return res.status(400).send({err:'Registration Error'});   
