@@ -12,7 +12,7 @@ const routes:Routes = [
   ,children:[
     {
       path:'',
-      component:PrestadoresComponent
+      component:InicioComponent
     },
     {
       path:'inicio',
